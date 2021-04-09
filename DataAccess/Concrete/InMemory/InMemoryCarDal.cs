@@ -3,11 +3,12 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCarDal
+    public class InMemoryCarDal: ICarDal
     {
         List<Car> _car;
 
@@ -15,12 +16,12 @@ namespace DataAccess.Concrete.InMemory
         {
             _car = new List<Car>
             {
-                new Car{ ID =1 , BrandID="1", ColorId = "111", ModelYear = "2010", DailyPrice =100, Description="Sadece günlük kiralanabilir."},
-                new Car{ ID =2 , BrandID="21", ColorId = "222", ModelYear = "2019", DailyPrice =75, Description="Sadece haftalık kiralanabilir."},
-                new Car{ ID =3 , BrandID="4", ColorId = "333", ModelYear = "2012", DailyPrice =50, Description="Sadece aylık kiralanabilir."},
-                new Car{ ID =4 , BrandID="43", ColorId = "444", ModelYear = "2013", DailyPrice =150, Description="Saatlik kiralanır"},
-                new Car{ ID =5 , BrandID="56", ColorId = "555", ModelYear = "2020", DailyPrice =200, Description="Sadece Şehir içine kiralanır."},
-                new Car{ ID =6 , BrandID="78", ColorId = "666", ModelYear = "1966", DailyPrice =700, Description="Klasik araçtır.(günlük kiralanır)"},
+                new Car{ ID =1 ,BrandId=1000,ColorId=3, ModelYear = 2010, DailyPrice =100, Description="Sadece günlük kiralanabilir."},
+                new Car{ ID =2 ,BrandId=1000,ColorId=3, ModelYear = 2019, DailyPrice =75, Description="Sadece haftalık kiralanabilir."},
+                new Car{ ID =3 ,BrandId=1000,ColorId=3,  ModelYear = 2012, DailyPrice =50, Description="Sadece aylık kiralanabilir."},
+                new Car{ ID =4 ,BrandId=1000,ColorId=3, ModelYear = 2013, DailyPrice =150, Description="Saatlik kiralanır"},
+                new Car{ ID =5 ,BrandId=1000,ColorId=3,  ModelYear = 2020, DailyPrice =200, Description="Sadece Şehir içine kiralanır."},
+                new Car{ ID =6 ,BrandId=1000,ColorId=3,  ModelYear = 1966, DailyPrice =700, Description="Klasik araçtır.(günlük kiralanır)"},
 
             };
         }
@@ -36,10 +37,18 @@ namespace DataAccess.Concrete.InMemory
             _car.Remove(car);
         }
 
-        public List<Car> GetAll()
+        public Car Get(Expression<Func<Car, bool>> filter)
         {
-            return _car;
+            throw new NotImplementedException();
         }
+
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+    
 
         public List<Car> GetById(int Id)
         {
