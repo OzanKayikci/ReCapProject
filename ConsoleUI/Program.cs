@@ -15,8 +15,9 @@ namespace ConsoleUI
 
         public static void Main(string[] args)
         {
-            //Console.WriteLine("Car ID   " + " Model   " + " Daily Price  " + " Description ");
-            //GetAll();
+            Console.WriteLine("Car ID   " + " Model   " + " Daily Price  " + " Description ");
+            GetAll();
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Car Name   " + " Model   " + " Daily Price  " + " Description ");
             CarTest();
             //Console.WriteLine("\n colorss");
@@ -28,15 +29,15 @@ namespace ConsoleUI
             Console.WriteLine("Please enter color ID");
             string id;
             id = Console.ReadLine();
-            foreach (var color in carManager.GetCarsByColorId(int.Parse(id)))
+            foreach (var color in carManager.GetCarsByColorId(int.Parse(id)).Data)
             {
-                Console.WriteLine(colorManager.GetById(color.ID).ColorName + "         " + color.ColorId );
+                Console.WriteLine(colorManager.GetById(color.ID).Data.ColorName + "         " + color.ColorId );
             }
         }
         public static void GetAll()
         {
           
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.ID + "         " + car.ModelYear + "     " + car.DailyPrice + "             "+car.Description);
             }
@@ -45,7 +46,7 @@ namespace ConsoleUI
         public static void CarTest()
         {
 
-            foreach (var car in carManager.GetCarDetailDtos())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine(car.CarName + "         " + car.BrandName + "     " + car.ColorName + "             " + car.DailyPrice + "             " + car.Description);
             }
