@@ -32,12 +32,12 @@ namespace Business.Concrete
 
         public IDataResult< List<Brand>> GetAll()
         {
-            return new SuccessDataResult<List<Brand>>( _brandDal.GetAll());
+            return new SuccessDataResult<List<Brand>>( _brandDal.GetAll(),Messages.BrandsListed);
         }
 
         public IDataResult<Brand> GetById(int Id)
         {
-            return new SuccessDataResult<Brand>( _brandDal.Get(b =>b.BrandId == Id));
+            return new SuccessDataResult<Brand>( _brandDal.Get(b =>b.BrandId == Id), Messages.BrandsListed);
         }
 
         public IResult Update(Brand brand)

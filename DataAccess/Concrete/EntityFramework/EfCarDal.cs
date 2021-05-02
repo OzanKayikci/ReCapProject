@@ -17,7 +17,7 @@ namespace DataAccess.Concrete.EntityFramework
             using (RentACarContext context = new RentACarContext())
             {
                 //join işlemi yapıyoruz
-                var result = from c in filter==null ? context.Cars: context.Cars.Where(filter)
+                var result =( from c in filter==null ? context.Cars: context.Cars.Where(filter)
                              join b in context.Brands
                              on c.BrandId equals b.BrandId
                              join color in context.Colors
@@ -30,8 +30,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = color.ColorName,
                                  DailyPrice = c.DailyPrice,
                                  Description = c.Description
-                             };
-                return result.ToList();
+                             }).ToList();
+
+                return result;
             }
         }
     }
