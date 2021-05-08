@@ -16,5 +16,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.CarName).NotEmpty();
             RuleFor(c => c.DailyPrice).GreaterThanOrEqualTo(100).When(p => p.BrandId == 1);
         }
+
     }
+
 }
