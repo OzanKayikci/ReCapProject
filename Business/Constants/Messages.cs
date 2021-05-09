@@ -38,5 +38,11 @@ namespace Business.Constants
         public static string RentalsListed = "Rentals Listedi";
         public static string CarAvaliable = "Araba Müsait";
         public static string CarNotAvaliable = "Araba kiralı";
+
+        public static string TokenCreated = "Token oluşturuldu";
+        public static string AuthorizationDenied = "Yetkilendirme yapılamadı";
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string WrongPassword = "Parola hatası";
+        public static string LoginSuccess = "Giriş başarılı";
     }
 }
