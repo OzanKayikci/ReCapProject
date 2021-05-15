@@ -15,16 +15,6 @@ namespace WebAPI.Controllers
             _userService = userService;
         }
 
-        [HttpGet("GetAllUsers")]
-        public IActionResult GetAllusers()
-        {
-            var result = _userService.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
 
         [HttpGet("GetUserById")]
         public IActionResult GetuserById(int userId)
